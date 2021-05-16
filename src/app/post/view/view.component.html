@@ -1,0 +1,58 @@
+<div *ngIf="!this.editFlag">
+    <mat-icon routerLink="" class="cursor" aria-hidden="false" style="padding-left: 20px;"
+        aria-label="Example home icon">
+        home</mat-icon>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- itemCode Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element" fa-trash> {{element.itemCode}} </td>
+        </ng-container>
+
+        <!-- itemName Column -->
+        <ng-container matColumnDef="no">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.itemName}} </td>
+        </ng-container>
+
+        <!-- description Column -->
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+
+        <!-- purchase Column -->
+        <ng-container matColumnDef="purchase">
+            <th mat-header-cell *matHeaderCellDef> Purchase Amount</th>
+            <td mat-cell *matCellDef="let element"> {{element.purchaseAmnt}} </td>
+        </ng-container>
+        <!-- selling Column -->
+        <ng-container matColumnDef="selling">
+            <th mat-header-cell *matHeaderCellDef> sell Amount </th>
+            <td mat-cell *matCellDef="let element"> {{element.sellAmnt}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-icon class="cursor" (click)=edit(element)>edit</mat-icon>
+                <mat-icon class="cursor" (click)=delete(element)>delete</mat-icon>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns">
+        </tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+<div *ngIf="this.editFlag">
+    <app-create [editFlag]="editFlag" [check]="check" (changeEditFlag)="this.editFlag=$event"></app-create>
+</div>
+
+<!-- Copyright 2021 Google LLC. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at http://angular.io/license -->

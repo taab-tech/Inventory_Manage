@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+#content h1 {background-color: red;}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.helper-top-margin {
+    margin-top: 15px !important;
+  }
+  .custom-label {
+    width: 100px !important;
+    font-size: 14px;
+  }
+  .helper-left-margin{
+      margin-left:10px !important;
+  }
+  .mat-form-field-label {
+    font-size: 17px;
+    font-weight: bold;
+    color: #2d353c !important;
+    z-index: 2;
+    margin-top: -6px;
+  }
+  div.ridge {
+    border-style: ridge;
+    border-width: 7px;
+    width: 50%;
+  }
+  .mat-error {
+    font-size: 12px !important;
+    margin-top: 10px;
+  }
+  .mt30{
+    margin-top: 30px !important;
+  }

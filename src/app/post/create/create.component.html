@@ -1,0 +1,67 @@
+<h1 style="background-color:lightBlue;" fxLayoutAlign="center">Create New Item</h1>
+<div class="example-button-row helper-left-margin">
+  <button mat-raised-button routerLink="">Home</button>
+  <button mat-raised-button class="helper-left-margin" (click)="reload()">Refresh</button>
+  <button mat-raised-button class="helper-left-margin" (click)="loadView()">View item</button>
+</div>
+<div class="container ridge" fxLayout="column" fxLayoutAlign="start">
+  <form #custForm="ngForm" autocomplete="off" let i=index;>
+
+    <!-- <a href="#" routerLink="" class="btn btn-primary">Back</a> -->
+    <div class="helper-top-margin helper-left-margin">
+      <mat-form-field fxFlex>
+        <label>Item Name:</label>
+        <span *ngIf="itemNameControl.errors?.required" style="color: rgb(233, 22, 22);">*</span>
+
+        <input matInput type="text" id="1" name="itemName" #itemNameControl=ngModel [(ngModel)]="items.itemName"
+          matTooltip="Enter a item name" [required]=true />
+        <mat-error *ngIf="itemNameControl.errors?.required && itemNameControl.touched" matTooltip="Enter a item code">
+          Error: Enter a item name
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="helper-top-margin helper-left-margin">
+      <mat-form-field fxFlex>
+        <label>HSN Code:</label>
+        <span *ngIf="itemCodeControl.errors?.required" style="color: rgb(233, 22, 22);">*</span>
+        <input matInput type="number" name="itemCode" #itemCodeControl=ngModel [(ngModel)]="items.itemCode" 
+          matTooltip="Enter a item Code" required />
+        <mat-error *ngIf="itemCodeControl.errors?.required && itemCodeControl.touched" matTooltip="Enter a item code">
+          Error: Enter a item code
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="helper-top-margin helper-left-margin">
+      <mat-form-field fxFlex>
+        <label class="custom-label">Description</label>
+        <input matInput type="text" name="description" [(ngModel)]="items.description"
+          matTooltip="Enter a description" />
+      </mat-form-field>
+    </div>
+    <div class="helper-top-margin helper-left-margin">
+      <mat-form-field fxFlex>
+        <label class="custom-label">Purchase Rate</label>
+        <span *ngIf="purchaseControl.errors?.required" style="color: rgb(233, 22, 22);">*</span>
+        <input matInput type="number" name="purchaseAmnt" #purchaseControl=ngModel [(ngModel)]="items.purchaseAmnt"
+          matTooltip="Enter a purchase amount" required />
+        <mat-error *ngIf="purchaseControl.errors?.required && purchaseControl.touched"
+          matTooltip="Enter a purchase amount">
+          Error: Enter a purchase amount
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="helper-top-margin helper-left-margin">
+      <mat-form-field fxFlex>
+        <label class="custom-label">Selling Rate</label>
+        <input matInput type="number" name="sellAmnt" [(ngModel)]="items.sellAmnt"
+          matTooltip="Enter a selling amount" />
+      </mat-form-field>
+    </div>
+    <div *ngIf="!this.editFlag" class="example-button-row " fxLayoutAlign="end" >
+      <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+    </div>
+    <div *ngIf="this.editFlag" class="example-button-row " fxLayoutAlign="end">
+      <button mat-raised-button color="primary" (click)="update()">Update</button>
+    </div>
+  </form>
+</div>

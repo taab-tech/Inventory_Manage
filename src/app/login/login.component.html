@@ -1,0 +1,16 @@
+ <!-- <button mat-raised-button(click)="ongotoButtonClicked()" type="goto">goto </button>   -->
+ <div fxLayoutAlign= "center-center" fxflexFill>
+  <mat-card fxFlex="25">  
+    <mat-toolbar>login</mat-toolbar>
+    <form fxLayoutAlign= "stretch" fxLayout="column"></form>  
+      <mat-form-field >
+          <input matInput placeholder="UserName" fxflex = "25">
+        </mat-form-field>
+      <br>
+        <mat-form-field >
+          <input matInput type = "password" placeholder="Password" fxflex = "25" >
+        </mat-form-field>
+        <br>
+        <!-- <button mat-raised-button(click)="onsubmitButtonClicked()" type="submit">login </button>  -->
+        <a mat-raised-button href="http://localhost:4200/post/index" target="_blank">login</a>
+  </mat-card>
